@@ -8,4 +8,8 @@
   justify-content: center;
 }
 
-
+.link,
+.link:visited{
+  color: inherit;
+  text-decoration: none;
+}
