@@ -1,0 +1,29 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  padding-top: 54px;
+  padding-bottom: 48px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #282828;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #0d50ff !important;
+}
