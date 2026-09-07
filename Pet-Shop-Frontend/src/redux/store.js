@@ -1,17 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import apiReducer from './apiSlice';
 import categoriesReducer from './slices/categoriesSlice';
+import productsReducer from './slices/productsSlice'
 import usersForDiscountReducer from './slices/usersForDiscountSlice';
+// import apiReducer from './apiSlice';
 
 const store = configureStore({
   reducer: {
-    // api: apiReducer,
-    // cart: cartReducer,
     categories: categoriesReducer,
     usersForDiscount: usersForDiscountReducer,
+    products: productsReducer,
     // order: orderReducer,
     // productInform: productInformReducer,
-    // product: productReducer,
+    // api: apiReducer,
+    // cart: cartReducer,    
     // sale: saleReducer,
   },
 });
