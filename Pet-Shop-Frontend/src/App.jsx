@@ -1,14 +1,14 @@
 import './App.css';
 
 import Main from './pages/Main';
-import Categories from './components/Categories';
+import Categories from './pages/Categories';
 import { Route, Routes } from 'react-router-dom';
 import Products from './pages/Products';
 import ProductPage from './pages/ProductPage';
-import Sale from './components/Sale';
+import Sale from './pages/Sale';
 import Cart from './pages/Cart';
 import Layout from './components/Layout';
-import CategoryPage from './pages/CategoryPage';
+import ProductsFromCategory from './pages/ProductsFromCategory';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Main />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/categories/:id" element={<CategoryPage />} />
+          <Route path="/categories/:id" element={<ProductsFromCategory />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/sale" element={<Sale />} />

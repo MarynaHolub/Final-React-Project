@@ -4,19 +4,20 @@ import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../../redux/thunks/thunks';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import BreadCrumbs from '../../components/BreadCrumbs';
 
 function ProductPage() {
   const { id } = useParams(); // useParams() достаёт значения динамических параметров из адресной строки
-//   console.log(id);
+  //   console.log(id);
 
-const { productsList, status, error } = useSelector(
+  const { productsList, status, error } = useSelector(
     (state) => state.products,
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(productsList.length === 0){
-    dispatch(fetchProducts());
+    if (productsList.length === 0) {
+      dispatch(fetchProducts());
     }
   }, [dispatch, productsList.length]);
 
@@ -28,9 +29,9 @@ const { productsList, status, error } = useSelector(
     return <p>Ошибка: {error}</p>;
   }
 
-  const product = productsList.find((product) => product.id === Number(id))
-  
-//   console.log(product);
+  const product = productsList.find((product) => product.id === Number(id));
+
+  //   console.log(product);
 
   if (!product) {
     return <p>Такой товар не найден</p>;
@@ -38,6 +39,9 @@ const { productsList, status, error } = useSelector(
 
   return (
     <div>
+      <div>
+        <BreadCrumbs />
+      </div>
       <img
         src={`${API_URL}${product.image}`}
         alt="Product-image"

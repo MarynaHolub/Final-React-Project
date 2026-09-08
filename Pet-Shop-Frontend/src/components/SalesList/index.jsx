@@ -1,12 +1,11 @@
+import styles from '../../styles/common.module.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks/thunks';
-import styles from '../../styles/common.module.css';
 import { NavLink } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
-import BreadCrumbs from '../../components/BreadCrumbs';
 
-function Products({ limit }) {
+function SaleList({ limit }) {
   const { productsList, status, error } = useSelector(
     (state) => state.products,
   );
@@ -25,19 +24,20 @@ function Products({ limit }) {
   }
 
   return (
-    <div className={styles.container}>
-      <BreadCrumbs />
-      <h2 className={styles.title}>All products</h2>
+    <div>
       <ul className={styles.productsWrapper}>
-        {productsList.slice(0, limit).map((product) => (
-          <li key={product.id}>
-            <NavLink to={`/products/${product.id}`} className={styles.link}>
-              <ProductCard product={product} />
-            </NavLink>
-          </li>
-        ))}
+        {productsList
+          .filter((product) => product.discont_price)
+          .slice(0, limit)
+          .map((product) => (
+            <li key={product.id}>
+              <NavLink to={`/products/${product.id}`} className={styles.link}>
+                <ProductCard product={product} />
+              </NavLink>
+            </li>
+          ))}
       </ul>
     </div>
   );
 }
-export default Products;
+export default SaleList;

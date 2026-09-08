@@ -1,6 +1,6 @@
-import Categories from '../../components/Categories';
+import CategoriesList from '../../components/CategoriesList';
 import RegistrFormDiscount from '../../components/RegistrFormDiscount';
-import Sale from '../../components/Sale';
+import SaleList from '../../components/SalesList';
 import styles from './Main.module.css';
 import { NavLink } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function Main() {
               <h5>All categories</h5>
             </NavLink>
           </div>
-          <Categories limit={4} />
+          <CategoriesList limit={4} />
         </section>
 
         <section className={styles.registrFormDiscountSection}>
@@ -38,7 +38,7 @@ function Main() {
               <h5>All sales</h5>
             </NavLink>
           </div>
-          <Sale limit={4}/>
+          <SaleList limit={4} />
         </section>
       </div>
     </main>

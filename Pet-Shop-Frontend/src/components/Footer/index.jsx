@@ -4,7 +4,7 @@ import styles from './Footer.module.css';
 
 function Footer() {
   return (
-    <div className={`${styles.footerSection} ${styles.container}`}>
+    <footer className={`${styles.footerSection} ${styles.container}`}>
       <h2 className={styles.title}>Contact</h2>
       <div className={styles.footerWrapper}>
         <div className={styles.item}>
@@ -45,7 +45,7 @@ function Footer() {
           referrerPolicy="strict-origin-when-cross-origin"
         ></iframe>
       </div>
-    </div>
+    </footer>
   );
 }
 export default Footer;

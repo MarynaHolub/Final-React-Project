@@ -1,0 +1,15 @@
+
+
+.categoriesWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 316px);
+  gap: 32px;
+  list-style: none;
+  justify-content: center;
+}
+
+.link,
+.link:visited{
+  color: inherit;
+  text-decoration: none;
+}
