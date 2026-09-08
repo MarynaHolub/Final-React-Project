@@ -1,14 +1,40 @@
-import styles from './Sale.module.css';
+import styles from '../../pages/Products/Products.module.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../../redux/thunks/thunks';
+import { NavLink } from 'react-router-dom';
+import ProductCard from '../../components/ProductCard';
 
 
 
-function Sale(){
+function Sale({limit}){
+const { productsList, status, error } = useSelector(
+    (state) => state.products,
+  );
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-    return(
-        <div>
+  if (status === 'loading') {
+    return <p>Загрузка...</p>;
+  }
 
-        </div>
-    )
+  if (status === 'failed') {
+    return <p>Ошибка: {error}</p>;
+  }
+
+  return (
+    <ul className={styles.productsWrapper}>
+      {productsList.filter((product)=>product.discont_price).slice(0, limit).map((product) => (
+        <li key={product.id}>
+          <NavLink to={`/products/${product.id}`} className={styles.link}>
+            <ProductCard product={product} />
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+  );
 }
 export default Sale

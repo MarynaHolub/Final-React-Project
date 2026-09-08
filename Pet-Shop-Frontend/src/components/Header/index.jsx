@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import logo from '../../assets/icons/logo.svg';
+// import logo from 'public/logo.svg';
 import cart from '../../assets/icons/cart.svg';
 
 function Header() {
@@ -13,7 +13,7 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <NavLink to="/">
-          <img className={styles.logo} src={logo} alt="logo" />
+          <img className={styles.logo} src='/logo.svg' alt="logo" />
         </NavLink>
         <nav className={styles.nav}>
           <NavLink style={linkStyle} to="/" className={styles.link}>
@@ -25,7 +25,7 @@ function Header() {
           <NavLink style={linkStyle} to="/products" className={styles.link}>
             All products
           </NavLink>
-          <NavLink style={linkStyle} to="/sales" className={styles.link}>
+          <NavLink style={linkStyle} to="/sale" className={styles.link}>
             All sales
           </NavLink>
         </nav>

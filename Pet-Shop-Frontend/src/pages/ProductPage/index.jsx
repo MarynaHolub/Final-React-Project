@@ -1,15 +1,35 @@
 import { API_URL } from '../../constants/api';
 import styles from './ProductPage.module.css';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { fetchProducts } from '../../redux/thunks/thunks';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ProductPage() {
   const { id } = useParams(); // useParams() достаёт значения динамических параметров из адресной строки
 //   console.log(id);
 
-  const product = useSelector((state) =>
-    state.products.productsList.find((product) => product.id === Number(id)),
+const { productsList, status, error } = useSelector(
+    (state) => state.products,
   );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(productsList.length === 0){
+    dispatch(fetchProducts());
+    }
+  }, [dispatch, productsList.length]);
+
+  if (status === 'loading') {
+    return <p>Загрузка...</p>;
+  }
+
+  if (status === 'failed') {
+    return <p>Ошибка: {error}</p>;
+  }
+
+  const product = productsList.find((product) => product.id === Number(id))
+  
 //   console.log(product);
 
   if (!product) {
