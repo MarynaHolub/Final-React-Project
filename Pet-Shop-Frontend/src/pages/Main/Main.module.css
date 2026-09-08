@@ -28,9 +28,9 @@
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 .blockTitle {
   margin-top: 80px;
@@ -60,7 +60,7 @@
   color: #8b8b8b;
 }
 
-.registrFormDiscountSection {
+.regFormDiscount {
   margin-top: 106px;
   margin-left: 40px;
 }
