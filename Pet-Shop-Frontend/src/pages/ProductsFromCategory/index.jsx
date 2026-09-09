@@ -1,26 +1,44 @@
+
 import styles from '../../styles/common.module.css';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/thunks/thunks';
-import { NavLink } from 'react-router-dom';
+
+import {
+  fetchProducts,
+  fetchCategories,
+} from '../../redux/thunks/thunks';
+
 import ProductCard from '../../components/ProductCard';
 import BreadCrumbs from '../../components/BreadCrumbs';
 
 function ProductsFromCategory() {
-  const { id } = useParams(); // useParams() достаёт значения динамических параметров из адресной строки
-  //   console.log(id);
+   const { id } = useParams();
 
+  const dispatch = useDispatch();
+
+  // Получаем товары из Redux
   const { productsList, status, error } = useSelector(
     (state) => state.products,
   );
-  const dispatch = useDispatch();
+
+  // Получаем категории из Redux
+  const {
+    categoriesList,
+    status: categoriesStatus,
+  } = useSelector((state) => state.categories);
 
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchCategories());
   }, [dispatch]);
 
-  if (status === 'loading') {
+  // Находим текущую категорию
+  const category = categoriesList.find(
+    (category) => String(category.id) === id,
+  );
+
+  if (status === 'loading' || categoriesStatus === 'loading') {
     return <p>Загрузка...</p>;
   }
 
@@ -30,16 +48,31 @@ function ProductsFromCategory() {
 
   return (
     <div>
-      <div>
-        <BreadCrumbs />
-      </div>
-      <h1 className={styles.title}>Categories</h1>
+      <BreadCrumbs categoryName={category?.title} />
+
+      <h1 className={styles.title}>{category?.title}</h1>
+
       <ul className={styles.productsWrapper}>
         {productsList
           .filter((product) => product.categoryId === Number(id))
           .map((product) => (
             <li key={product.id}>
-              <NavLink to={`/products/${product.id}`} className={styles.link}>
+              <NavLink // передаем также состояние, т.е. откуда переходим
+                to={`/products/${product.id}`}
+                className={styles.link}
+                state={{
+                  breadcrumb: [
+                    {
+                      label: 'Categories',
+                      to: '/categories',
+                    },
+                    {
+                      label: category?.title,
+                      to: `/categories/${category?.id}`,
+                    },
+                  ],
+                }}
+              >
                 <ProductCard product={product} />
               </NavLink>
             </li>
@@ -48,4 +81,5 @@ function ProductsFromCategory() {
     </div>
   );
 }
+
 export default ProductsFromCategory;

@@ -1,0 +1,40 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+
+.item,
+.link,
+.current {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 118px;
+  padding: 8px 16px;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+
+  font-weight: 500;
+  font-size: 16px;
+    text-align: center;
+  text-decoration: none;
+  color: #8b8b8b;
+}
+
+.current {
+  color: #282828;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  width: 16px;
+  height: 1px;
+  background-color: #ddd;
+
+}

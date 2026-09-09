@@ -1,136 +1,113 @@
-import {
-  Breadcrumbs as MUIBreadcrumbs,
-  Link,
-  Typography,
-} from '@mui/material';
-
-import {
-  Link as RouterLink,
-  useLocation,
-} from 'react-router-dom';
 
 
-function BreadCrumbs() {
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { breadcrumbConfig } from '../../routes/breadcrumbConfig';
+import styles from './BreadCrumbs.module.css';
 
-  // Получаем текущий адрес
+function BreadCrumbs({
+  categoryName,
+  productName,
+  parentItems = [],
+}) {
   const { pathname } = useLocation();
+  const { id } = useParams();
 
-  // Разбиваем адрес на части
-  //
-  // Например:
-  // /categories/5
-  //
-  // получится:
-  // ['categories', '5']
-  const paths = pathname
-    .split('/')
-    .filter(Boolean);
+  const paths = pathname.split('/').filter(Boolean);
 
-  console.log(paths);
-
+  const isCategoryPage = pathname.startsWith('/categories/');
+  const isProductPage = pathname.startsWith('/products/');
 
   return (
-    <MUIBreadcrumbs
-      aria-label="breadcrumb"
-      sx={{
-        '& .MuiBreadcrumbs-separator': {
-          width: '16px',
-          height: '1px',
-          backgroundColor: '#ddd',
-          margin: 0,
-        },
-      }}
-    >
+    <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
 
-      {/* Главная страница */}
-      <Link
-        component={RouterLink}
-        to="/"
-        underline="none"
-        sx={{
-          display: 'block',
-          border: '1px solid',
-          borderColor: '#ddd',
-          borderRadius: '6px',
-          padding: '8px 16px',
-        }}
-      >
+      {/* Всегда первый пункт */}
+      <Link to="/" className={styles.item}>
         Main Page
       </Link>
 
-
-      {/* Создаём остальные элементы автоматически */}
-
-      {paths.map((path, index) => {
-
-        // Создаём URL для текущего элемента
-        //
-        // Например:
-        //
-        // index = 0
-        // /categories
-        //
-        // index = 1
-        // /categories/5
-
-        const to =
-          '/' + paths.slice(0, index + 1).join('/');
-
-
-        // Проверяем, последний ли это элемент
-
-        const isLast =
-          index === paths.length - 1;
-
-
-        // Если последний —
-        // обычный текст, а не ссылка
-
-        if (isLast) {
-          return (
-            <Typography
-              key={to}
-              color="text.primary"
-              sx={{
-                border: '1px solid',
-                borderColor: '#ddd',
-                borderRadius: '6px',
-                padding: '8px 16px',
-              }}
+      {/* Если это ProductPage и нам передали navigation state */}
+      {isProductPage && parentItems.length > 0 ? (
+        <>
+          {/* Предыдущие страницы */}
+          {parentItems.map((item) => (
+            <div
+              key={item.to}
+              className={styles.wrapper}
             >
-              {path}
-            </Typography>
+              <span className={styles.separator}></span>
+
+              <Link
+                to={item.to}
+                className={styles.item}
+              >
+                {item.label}
+              </Link>
+            </div>
+          ))}
+
+          {/* Текущий товар */}
+          <div className={styles.wrapper}>
+            <span className={styles.separator}></span>
+
+            <span
+              className={`${styles.item} ${styles.current}`}
+            >
+              {productName}
+            </span>
+          </div>
+        </>
+      ) : (
+        /*
+          Если state нет, используем обычную
+          логику на основе URL
+        */
+        paths.map((path, index) => {
+          const isLast = index === paths.length - 1;
+
+          const to =
+            '/' + paths.slice(0, index + 1).join('/');
+
+          let label;
+
+          if (path === id) {
+            if (isCategoryPage) {
+              label = categoryName;
+            }
+
+            if (isProductPage) {
+              label = productName;
+            }
+          } else {
+            label = breadcrumbConfig[path] || path;
+          }
+
+          return (
+            <div
+              key={to}
+              className={styles.wrapper}
+            >
+              <span className={styles.separator}></span>
+
+              {isLast ? (
+                <span
+                  className={`${styles.item} ${styles.current}`}
+                >
+                  {label}
+                </span>
+              ) : (
+                <Link
+                  to={to}
+                  className={styles.item}
+                >
+                  {label}
+                </Link>
+              )}
+            </div>
           );
-        }
-
-
-        // Если НЕ последний —
-        // создаём ссылку
-
-        return (
-          <Link
-            key={to}
-            component={RouterLink}
-            to={to}
-            underline="none"
-            color="inherit"
-            sx={{
-              display: 'block',
-              border: '1px solid',
-              borderColor: '#ddd',
-              borderRadius: '6px',
-              padding: '8px 16px',
-            }}
-          >
-            {path}
-          </Link>
-        );
-
-      })}
-
-    </MUIBreadcrumbs>
+        })
+      )}
+    </nav>
   );
 }
-
 
 export default BreadCrumbs;

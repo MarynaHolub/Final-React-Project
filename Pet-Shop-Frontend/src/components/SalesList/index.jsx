@@ -1,3 +1,5 @@
+
+
 import styles from '../../styles/common.module.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +11,7 @@ function SaleList({ limit }) {
   const { productsList, status, error } = useSelector(
     (state) => state.products,
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +34,18 @@ function SaleList({ limit }) {
           .slice(0, limit)
           .map((product) => (
             <li key={product.id}>
-              <NavLink to={`/products/${product.id}`} className={styles.link}>
+              <NavLink  // передаем также состояние, т.е. откуда переходим
+                to={`/products/${product.id}`}
+                className={styles.link}
+                state={{
+                  breadcrumb: [
+                    {
+                      label: 'All sales',
+                      to: '/sale',
+                    },
+                  ],
+                }}
+              >
                 <ProductCard product={product} />
               </NavLink>
             </li>
@@ -40,4 +54,5 @@ function SaleList({ limit }) {
     </div>
   );
 }
+
 export default SaleList;

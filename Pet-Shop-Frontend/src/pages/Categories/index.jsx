@@ -3,6 +3,7 @@ import CategoriesList from '../../components/CategoriesList';
 import BreadCrumbs from '../../components/BreadCrumbs';
 
 function Categories() {
+  
   return (
     <div className={styles.container}>
       <BreadCrumbs />
