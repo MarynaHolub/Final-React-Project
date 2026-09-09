@@ -1,6 +1,7 @@
 .breadcrumbs {
   display: flex;
   align-items: center;
+  margin-top: 40px;
 }
 
 .item,
@@ -18,7 +19,7 @@
 
   font-weight: 500;
   font-size: 16px;
-    text-align: center;
+  text-align: center;
   text-decoration: none;
   color: #8b8b8b;
 }
@@ -36,5 +37,4 @@
   width: 16px;
   height: 1px;
   background-color: #ddd;
-
 }

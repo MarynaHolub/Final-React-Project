@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks/thunks';
 import styles from '../../styles/common.module.css';
-import { NavLink } from 'react-router-dom';
-import ProductCard from '../../components/ProductCard';
+// import { NavLink } from 'react-router-dom';
+// import ProductCard from '../../components/ProductCard';
 import BreadCrumbs from '../../components/BreadCrumbs';
+import ProductsFilter from '../../components/ProductsFilter';
 
 function Products({ limit }) {
   const { productsList, status, error } = useSelector(
@@ -27,16 +28,11 @@ function Products({ limit }) {
   return (
     <div className={styles.container}>
       <BreadCrumbs />
-      <h2 className={styles.title}>All products</h2>
-      <ul className={styles.productsWrapper}>
-        {productsList.slice(0, limit).map((product) => (
-          <li key={product.id}>
-            <NavLink to={`/products/${product.id}`} className={styles.link}>
-              <ProductCard product={product} />
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      <h1 className={styles.title}>All products</h1>
+
+      <ProductsFilter
+        products={limit ? productsList.slice(0, limit) : productsList}
+      />
     </div>
   );
 }
