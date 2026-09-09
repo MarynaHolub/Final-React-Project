@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import ProductCard from '../ProductCard';
 import styles from '../../styles/common.module.css';
 
-function ProductsFilter({ products, breadcrumb }) {
+function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
   const [priceFrom, setPriceFrom] = useState('');
   const [priceTo, setPriceTo] = useState('');
   const [discountedOnly, setDiscountedOnly] = useState(false);
@@ -53,55 +53,61 @@ function ProductsFilter({ products, breadcrumb }) {
   }, [products, priceFrom, priceTo, discountedOnly, sort]);
 
   return (
-    <>
-      <div className={styles.filter}>
-        {/* Цена ОТ */}
+    <div>
+      <div className={styles.blockFilterSort}>
         <label>
-          Price from
+          <span>Price </span>
           <input
             type="number"
             min="0"
             value={priceFrom}
             onChange={(event) => setPriceFrom(event.target.value)}
-            placeholder="0"
+            placeholder="from"
           />
-        </label>
-
-        {/* Цена ДО */}
-        <label>
-          Price to
           <input
             type="number"
             min="0"
             value={priceTo}
             onChange={(event) => setPriceTo(event.target.value)}
-            placeholder="1000"
+            placeholder="to"
           />
         </label>
 
-        {/* Только со скидкой */}
-        <label className={styles.checkbox}>
+        { showDiscounted && <label className={styles.checkbox}>
+          Discounted items
           <input
             type="checkbox"
             checked={discountedOnly}
             onChange={(event) => setDiscountedOnly(event.target.checked)}
           />
-          Discounted only
-        </label>
+          <span className={styles.checkmark}>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 6L9 17L4 12"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </label>}
 
-        {/* Сортировка */}
         <label>
-          Sort by
+          Sorted
           <select
             value={sort}
             onChange={(event) => setSort(event.target.value)}
           >
-            <option value="default">Default</option>
-
+            <option value="default">by default</option>
             <option value="newest">Newest</option>
-
             <option value="price-high">Price: high to low</option>
-
             <option value="price-low">Price: low to high</option>
           </select>
         </label>
@@ -120,7 +126,7 @@ function ProductsFilter({ products, breadcrumb }) {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

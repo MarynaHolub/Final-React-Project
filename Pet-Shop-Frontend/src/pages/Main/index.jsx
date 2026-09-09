@@ -39,6 +39,7 @@ function Main() {
             </NavLink>
           </div>
           <SaleList limit={4} />
+        
         </section>
       </div>
     </main>

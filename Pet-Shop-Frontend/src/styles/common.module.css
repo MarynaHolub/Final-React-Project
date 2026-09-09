@@ -1,4 +1,3 @@
-
 .container {
   width: 100%;
   max-width: 1400px;
@@ -19,14 +18,101 @@
 }
 
 .link,
-.link:visited{
+.link:visited {
   color: inherit;
   text-decoration: none;
 }
 
 .title {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-weight: 700;
   font-size: 64px;
   color: #282828;
+}
+
+.blockFilterSort {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+label {
+  font-weight: 600;
+  font-size: 20px;
+  color: #282828;
+}
+
+input[type='number'],
+select,
+option {
+  font-weight: 500;
+  font-size: 16px;
+  color: #8b8b8b;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+input[type='number'] {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 16px;
+  width: 112px;
+}
+
+select,
+option {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 8px 8px 16px;
+  width: 200px;
+}
+
+select,
+select option[value='default'] {
+  color: #282828;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+/* Настоящий checkbox прячем */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Наш визуальный checkbox */
+.checkmark {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Галочка по умолчанию скрыта */
+.checkmark svg {
+  display: none;
+}
+
+/* Когда checkbox выбран */
+.checkbox input:checked + .checkmark {
+  background: #0d50ff;
+  border-color: #0d50ff;
+}
+
+/* Показываем галочку */
+.checkbox input:checked + .checkmark svg {
+  display: block;
 }
