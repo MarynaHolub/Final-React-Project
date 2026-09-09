@@ -57,14 +57,14 @@ function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
       <div className={styles.blockFilterSort}>
         <label>
           <span>Price </span>
-          <input
+          <input className={styles.input}
             type="number"
             min="0"
             value={priceFrom}
             onChange={(event) => setPriceFrom(event.target.value)}
             placeholder="from"
           />
-          <input
+          <input className={styles.input}
             type="number"
             min="0"
             value={priceTo}
