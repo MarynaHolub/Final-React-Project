@@ -1,16 +1,82 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  width: 316px;
+  position: relative;
+}
+
 .img {
   width: 100%;
   display: block;
-  height: 350px;
+  height: 284px;
   object-fit: cover;
-  border-radius: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid #ddd;
 }
 
 .title {
   font-weight: 500;
   font-size: 20px;
-  text-align: center;
-  margin-top: 16px;
+  margin: 20px 32px 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #282828;
+}
+.blockPrice {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin-left: 32px;
+  margin-bottom: 32px;
+}
+.discontPrice {
+  font-weight: 600;
+  font-size: 40px;
+  color: #282828;
+}
+.price {
+  font-weight: 500;
+  font-size: 20px;
 
- 
+  text-decoration: line-through;
+  color: #8b8b8b;
+}
+.discount {
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 63px;
+  height: 34px;
+  background: #0d50ff;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.button {
+  border-radius: 6px;
+  padding: 16px 32px;
+  width: 284px;
+  background: #0d50ff;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  position: absolute;
+  top: 210px;
+  left: 16px;
+  cursor: pointer;
+  display: none;
+}
+
+.button:hover{
+  background: #282828;
+}
+.card:hover .button{
+  display: block;
 }
