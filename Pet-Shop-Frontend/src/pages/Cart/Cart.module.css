@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.content {
+  display: flex;
+  gap: 32px;
+}
+.cartTitle {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #282828;
+  margin-bottom: 32px;
+}
+.link {
+  border-radius: 6px;
+  padding: 16px 56px;
+  width: 313px;
+  height: 58px;
+  background: #0d50ff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  text-align: center;
+  color: #fff;
+}

@@ -1,0 +1,39 @@
+.notFound {
+  max-width: 690px;
+  margin: 0 auto;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  align-self: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 110%;
+  text-align: center;
+  color: #282828;
+}
+.info {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  text-align: center;
+  color: #8b8b8b;
+}
+
+.link {
+  border-radius: 6px;
+  padding: 16px 56px;
+  width: 209px;
+  height: 58px;
+  background: #0d50ff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  text-align: center;
+  color: #fff;
+}

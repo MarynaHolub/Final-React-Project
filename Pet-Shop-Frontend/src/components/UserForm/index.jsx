@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import styles from './UserForm.module.css';
 
@@ -18,6 +17,9 @@ function UserForm({
   onSubmit,
   buttonText = 'Submit',
   submittingText = 'Request Submitted',
+  className = '',
+  inputClassName = '',
+  buttonClassName = '',
 }) {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState(initialErrors);
@@ -82,17 +84,13 @@ function UserForm({
     }
   };
 
+  const formClassName = Object.values(errors).some(Boolean)
+    ? styles.formWithErrors
+    : styles.form;
   return (
-    <form
-      className={
-        Object.values(errors).some(Boolean)
-          ? styles.formWithErrors
-          : styles.form
-      }
-      onSubmit={handleSubmit}
-    >
+    <form className={`${formClassName} ${className}`} onSubmit={handleSubmit}>
       <input
-        className={styles.input}
+        className={`${styles.input} ${inputClassName}`}
         type="text"
         name="name"
         value={name}
@@ -103,7 +101,7 @@ function UserForm({
       {errors.name && <p className={styles.error}>{errors.name}</p>}
 
       <input
-        className={styles.input}
+        className={`${styles.input} ${inputClassName}`}
         type="tel"
         name="phone"
         value={phone}
@@ -114,7 +112,7 @@ function UserForm({
       {errors.phone && <p className={styles.error}>{errors.phone}</p>}
 
       <input
-        className={styles.input}
+        className={`${styles.input} ${inputClassName}`}
         type="email"
         name="email"
         value={email}
@@ -126,7 +124,7 @@ function UserForm({
 
       <button
         type="submit"
-        className={styles.button}
+        className={`${styles.button} ${buttonClassName}`}
         style={{
           color: isSubmitting ? '#0d50ff' : '',
           background: isSubmitting ? '#fff' : '',
@@ -139,4 +137,3 @@ function UserForm({
 }
 
 export default UserForm;
-

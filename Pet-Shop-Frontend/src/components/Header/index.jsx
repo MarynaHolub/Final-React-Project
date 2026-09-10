@@ -31,6 +31,7 @@ function Header() {
           <img className={styles.cart} src={cart} alt="cart" />
           {totalQuantity > 0 && ( <span className={styles.cartCount}>{totalQuantity}</span> )}
         </NavLink>
+        
       </div>
     </header>
   );

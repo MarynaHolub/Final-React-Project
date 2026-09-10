@@ -10,6 +10,8 @@ import Cart from './pages/Cart';
 import Layout from './components/Layout';
 import ProductsFromCategory from './pages/ProductsFromCategory';
 
+import NotFoundPage from './pages/NotFoundPage';
+
 function App() {
   return (
     <div className="app">
@@ -22,6 +24,7 @@ function App() {
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/sale" element={<Sale />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </div>
