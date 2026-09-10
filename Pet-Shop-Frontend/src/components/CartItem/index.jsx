@@ -18,6 +18,7 @@ function CartItem({ product }) {
     : product.product.price;
 
   const totalPrice = currentPrice * product.count;
+  const oldTotalPrice = product.product.price * product.count;
 
   return (
     <article className={styles.cartItem}>
@@ -59,28 +60,28 @@ function CartItem({ product }) {
               />
             </svg>
           </button>
-
         </div>
 
+        <div className={styles.flex}>
+          <QuantitySelector
+            value={product.count}
+            onChange={(value) => {
+              if (value > product.count) {
+                dispatch(increaseQuantity(product.product.id));
+              } else if (value < product.count) {
+                dispatch(decreaseQuantity(product.product.id));
+              }
+            }}
+          />
 
-     <div  className={styles.flex}>
-         <QuantitySelector
-          value={product.count}
-          onChange={(value) => {
-            if (value > product.count) {
-              dispatch(increaseQuantity(product.product.id));
-            } else if (value < product.count) {
-              dispatch(decreaseQuantity(product.product.id));
-            }
-          }}
-        />
-       <div>
-         <span className={styles.totalPrice}>${totalPrice}</span>
-        <span className={styles.price}>${currentPrice}</span>
-       </div>
-     </div>
+          <div>
+            <span className={styles.totalPrice}>${totalPrice}</span>
 
-        
+            {product.product.discont_price && (
+              <span className={styles.price}>${oldTotalPrice}</span>
+            )}
+          </div>
+        </div>
       </div>
     </article>
   );
