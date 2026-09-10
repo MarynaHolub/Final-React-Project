@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import CategoriesList from '../../components/CategoriesList';
 import RegFormDiscount from '../../components/RegFormDiscount';
 import SaleList from '../../components/SalesList';
@@ -12,7 +13,10 @@ function Main() {
           <h1 className={styles.checkDiscountTitle}>
             Amazing Discounts on Pets Products!
           </h1>
-          <button className={styles.checkDiscountButton}>Check out</button>
+          
+          <NavLink to="/sale" className={styles.checkDiscountButton}>
+            Check out
+          </NavLink>
         </section>
 
         <section className={styles.container}>

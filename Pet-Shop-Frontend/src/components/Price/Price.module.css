@@ -1,0 +1,34 @@
+.blockPrice {
+  display: flex;
+  align-items: baseline;
+  
+}
+.extraBlock{
+  position: relative;
+}
+.discontPrice {
+  font-weight: 600;
+  font-size: 64px;
+  color: #282828;
+  margin-right: 32px;
+}
+.price {
+  font-weight: 500;
+  font-size: 40px;
+  text-decoration: line-through;
+  color: #8b8b8b;
+}
+
+.discount {
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 63px;
+  height: 34px;
+  background: #0d50ff;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  right: -79px;
+}

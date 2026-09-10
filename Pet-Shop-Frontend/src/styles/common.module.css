@@ -51,6 +51,7 @@ option {
   color: #8b8b8b;
   margin-right: 16px;
   margin-left: 16px;
+  outline: none;
 }
 
 .input {

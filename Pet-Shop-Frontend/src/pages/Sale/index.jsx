@@ -31,7 +31,16 @@ function Sale() {
     <div className={styles.container}>
       <BreadCrumbs />
       <h1 className={styles.title}>Discounted items</h1>
-      <ProductsFilter products={saleProducts} showDiscounted={false} />
+      <ProductsFilter
+        products={saleProducts}
+        showDiscounted={false}
+        breadcrumb={[
+          {
+            label: 'All sales',
+            to: '/sale',
+          },
+        ]}
+      />
     </div>
   );
 }

@@ -5,7 +5,9 @@ import styles from '../../styles/common.module.css';
 // import { NavLink } from 'react-router-dom';
 // import ProductCard from '../../components/ProductCard';
 import BreadCrumbs from '../../components/BreadCrumbs';
+import { breadcrumbConfig } from '../../routes/breadcrumbConfig';
 import ProductsFilter from '../../components/ProductsFilter';
+
 
 function Products({ limit }) {
   const { productsList, status, error } = useSelector(
@@ -32,6 +34,12 @@ function Products({ limit }) {
 
       <ProductsFilter
         products={limit ? productsList.slice(0, limit) : productsList}
+        parentItems={[
+          {
+            to: '/products',
+            label: breadcrumbConfig.products,
+          },
+        ]}
       />
     </div>
   );

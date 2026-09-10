@@ -35,3 +35,21 @@ export const fetchAddUser = createAsyncThunk(
     
   },
 );
+
+export const fetchCreateOrder = createAsyncThunk(
+  'orders/fetchCreateOrder',
+  async (orderData) => {
+    // const response = await axios.post(`${API_URL}/send`, orderData);
+    // return response.data;
+
+    // Имитируем успешный ответ сервера
+    console.log(orderData);
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return {
+      status: 'OK',
+      message: 'order created successfully',
+    };
+  },
+);

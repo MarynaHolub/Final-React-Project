@@ -5,6 +5,8 @@ import ProductCard from '../ProductCard';
 import styles from '../../styles/common.module.css';
 
 function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
+// function ProductsFilter({ products, parentItems = [], showDiscounted = true }) {
+
   const [priceFrom, setPriceFrom] = useState('');
   const [priceTo, setPriceTo] = useState('');
   const [discountedOnly, setDiscountedOnly] = useState(false);
@@ -57,14 +59,16 @@ function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
       <div className={styles.blockFilterSort}>
         <label>
           <span>Price </span>
-          <input className={styles.input}
+          <input
+            className={styles.input}
             type="number"
             min="0"
             value={priceFrom}
             onChange={(event) => setPriceFrom(event.target.value)}
             placeholder="from"
           />
-          <input className={styles.input}
+          <input
+            className={styles.input}
             type="number"
             min="0"
             value={priceTo}
@@ -73,31 +77,33 @@ function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
           />
         </label>
 
-        { showDiscounted && <label className={styles.checkbox}>
-          Discounted items
-          <input
-            type="checkbox"
-            checked={discountedOnly}
-            onChange={(event) => setDiscountedOnly(event.target.checked)}
-          />
-          <span className={styles.checkmark}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 6L9 17L4 12"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </label>}
+        {showDiscounted && (
+          <label className={styles.checkbox}>
+            Discounted items
+            <input
+              type="checkbox"
+              checked={discountedOnly}
+              onChange={(event) => setDiscountedOnly(event.target.checked)}
+            />
+            <span className={styles.checkmark}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 6L9 17L4 12"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </label>
+        )}
 
         <label>
           Sorted
@@ -120,6 +126,7 @@ function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
               to={`/products/${product.id}`}
               className={styles.link}
               state={{ breadcrumb }}
+              
             >
               <ProductCard product={product} />
             </NavLink>

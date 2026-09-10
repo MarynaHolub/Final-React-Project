@@ -1,14 +1,22 @@
+
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
+import { useLocation, useNavigationType } from 'react-router-dom';
 
 function ScrollToTop() {
-  const { pathname } = useLocation(); // pathname маршрут
+  const { pathname } = useLocation();
+  const navigationType = useNavigationType();
 
   useEffect(() => {
+    if (navigationType === 'POP') {
+      return;
+    }
+
     window.scrollTo(0, 0);
-  }, [pathname]);   // useEffect срабатывает каждый раз,когда pathname изменяется - новый маршрут
+  }, [pathname, navigationType]);
 
   return null;
 }
 
 export default ScrollToTop;
+

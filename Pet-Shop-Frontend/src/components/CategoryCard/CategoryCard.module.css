@@ -1,3 +1,11 @@
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
 .img {
   width: 100%;
   display: block;
@@ -11,6 +19,4 @@
   font-size: 20px;
   text-align: center;
   margin-top: 16px;
-
-  /* text-decoration: none; */
 }

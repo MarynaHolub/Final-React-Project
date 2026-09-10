@@ -5,7 +5,7 @@ function CategoryCard({category}){
 
 
     return(
-        <div>
+        <div className={styles.card}>
             <img src={`${API_URL}${category.image}`} alt="Category-image" className={styles.img} />
             <p className={styles.title}>{category.title}</p>
         </div>

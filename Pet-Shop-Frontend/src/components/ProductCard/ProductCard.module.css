@@ -3,6 +3,10 @@
   border-radius: 12px;
   width: 316px;
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.02);
 }
 
 .img {
@@ -57,7 +61,7 @@
   right: 16px;
 }
 
-.button {
+/* .button {
   border-radius: 6px;
   padding: 16px 32px;
   width: 284px;
@@ -78,5 +82,16 @@
   background: #282828;
 }
 .card:hover .button{
+  display: block;
+} */
+
+.buttonWrapper {
+  position: absolute;
+  top: 210px;
+  left: 16px;
+  display: none;
+}
+
+.card:hover .buttonWrapper {
   display: block;
 }

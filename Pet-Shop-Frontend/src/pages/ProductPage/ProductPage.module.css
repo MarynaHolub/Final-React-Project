@@ -36,9 +36,12 @@
   flex-direction: column;
   gap: 32px;
 }
-.blockPrice {
+/* .blockPrice {
   display: flex;
   align-items: baseline;
+  
+}
+.extraBlock{
   position: relative;
 }
 .discontPrice {
@@ -52,8 +55,8 @@
   font-size: 40px;
   text-decoration: line-through;
   color: #8b8b8b;
-}
-.discount {
+} */
+/* .discount {
   border-radius: 6px;
   padding: 4px 8px;
   width: 63px;
@@ -63,14 +66,15 @@
   font-size: 20px;
   color: #fff;
   position: absolute;
-  top: 0;
-  right: 179px;
-}
+  top: 5px;
+  right: -79px;
+} */
 .blockCountButton {
   display: flex;
   gap: 32px;
+ 
 }
-.blockWrapper {
+/* .blockWrapper {
   display: flex;
 }
 .btn {
@@ -97,7 +101,16 @@
   color: #282828;
   outline: none;
 }
-.button {
+
+/* Chrome, Safari, Edge */
+/* .count::-webkit-inner-spin-button,
+.count::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */ 
+
+
+/* .button {
   border-radius: 6px;
   padding: 16px 32px;
   width: 284px;
@@ -112,6 +125,18 @@
 
 .button:hover {
   background: #282828;
+} */
+
+
+.added {
+  background: #fff;
+  color: #282828;
+  border: 1px solid #282828;
+}
+
+.added:hover {
+  background: #fff;
+  color: #282828;
 }
 
 .title {
