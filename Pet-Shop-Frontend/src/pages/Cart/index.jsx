@@ -1,11 +1,14 @@
+import SectionTitle from '../../components/SectionTitle';
 
-function Cart(){
+function Cart() {
+  return (
+    <div>
+      <SectionTitle name={'Shopping cart'} link={'Back to the store'} />
+
+        
 
 
-    return(
-        <div>
-
-        </div>
-    )
+    </div>
+  );
 }
-export default Cart
+export default Cart;

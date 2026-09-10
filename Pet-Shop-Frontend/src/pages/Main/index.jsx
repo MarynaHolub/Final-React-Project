@@ -1,8 +1,8 @@
 import CategoriesList from '../../components/CategoriesList';
 import RegFormDiscount from '../../components/RegFormDiscount';
 import SaleList from '../../components/SalesList';
+import SectionTitle from '../../components/SectionTitle';
 import styles from './Main.module.css';
-import { NavLink } from 'react-router-dom';
 
 function Main() {
   return (
@@ -16,13 +16,7 @@ function Main() {
         </section>
 
         <section className={styles.container}>
-          <div className={styles.blockTitle}>
-            <h2 className={styles.title}>Categories</h2>
-            <div className={styles.divider}></div>
-            <NavLink to="/categories" className={styles.allLink}>
-              <h5>All categories</h5>
-            </NavLink>
-          </div>
+          <SectionTitle name={'Categories'} link={'All categories'} />
           <CategoriesList limit={4} />
         </section>
 
@@ -31,15 +25,8 @@ function Main() {
         </section>
 
         <section className={styles.container}>
-          <div className={styles.blockTitle}>
-            <h2 className={styles.title}>Sale</h2>
-            <div className={styles.divider}></div>
-            <NavLink to="/sale" className={styles.allLink}>
-              <h5>All sales</h5>
-            </NavLink>
-          </div>
+          <SectionTitle name={'Sale'} link={'All sales'} />
           <SaleList limit={4} />
-        
         </section>
       </div>
     </main>
