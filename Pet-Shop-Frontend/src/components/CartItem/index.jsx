@@ -28,9 +28,43 @@ function CartItem({ product }) {
       />
 
       <div className={styles.info}>
-        <h2 className={styles.title}>{product.product.title}</h2>
+        <div>
+          <h2 className={styles.title}>{product.product.title}</h2>
 
-        <QuantitySelector
+          <button
+            type="button"
+            className={styles.removeButton}
+            onClick={() => dispatch(removeFromCart(product.product.id))}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 6L6 18"
+                stroke="#282828"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M6 6L18 18"
+                stroke="#282828"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+        </div>
+
+
+     <div  className={styles.flex}>
+         <QuantitySelector
           value={product.count}
           onChange={(value) => {
             if (value > product.count) {
@@ -40,23 +74,14 @@ function CartItem({ product }) {
             }
           }}
         />
-      </div>
+       <div>
+         <span className={styles.totalPrice}>${totalPrice}</span>
+        <span className={styles.price}>${currentPrice}</span>
+       </div>
+     </div>
 
-      <div className={styles.price}>
-        ${currentPrice}
+        
       </div>
-
-      <div className={styles.totalPrice}>
-        ${totalPrice}
-      </div>
-
-      <button
-        type="button"
-        className={styles.removeButton}
-        onClick={() => dispatch(removeFromCart(product.product.id))}
-      >
-        ×
-      </button>
     </article>
   );
 }
