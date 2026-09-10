@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 function Cart() {
   const cartList = useSelector((state) => state.cart.cartList);
 
-  console.log('Cart:', cartList);
+  
 
   return (
     <div className={styles.container}>

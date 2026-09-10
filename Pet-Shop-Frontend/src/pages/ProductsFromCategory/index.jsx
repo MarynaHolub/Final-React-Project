@@ -2,10 +2,10 @@ import styles from '../../styles/common.module.css';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { breadcrumbConfig } from '../../routes/breadcrumbConfig';
+
 import { fetchProducts, fetchCategories } from '../../redux/thunks/thunks';
 
-// import ProductCard from '../../components/ProductCard';
+
 import BreadCrumbs from '../../components/BreadCrumbs';
 import ProductsFilter from '../../components/ProductsFilter';
 
@@ -56,10 +56,10 @@ function ProductsFromCategory() {
       <ProductsFilter
         products={categoryProducts}
         breadcrumb={[
-        // parentItems={[
+      
           {
             label: 'Categories',
-            // label: breadcrumbConfig.categories,
+           
             to: '/categories',
           },
           {

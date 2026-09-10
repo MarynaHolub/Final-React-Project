@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks/thunks';
 import styles from '../../styles/common.module.css';
-// import { NavLink } from 'react-router-dom';
-// import ProductCard from '../../components/ProductCard';
+
 import BreadCrumbs from '../../components/BreadCrumbs';
 import { breadcrumbConfig } from '../../routes/breadcrumbConfig';
 import ProductsFilter from '../../components/ProductsFilter';

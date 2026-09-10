@@ -8,7 +8,7 @@ import { Modal, Box, Typography } from '@mui/material';
 function OrderDetails() {
   const cartList = useSelector((state) => state.cart.cartList);
 
-  console.log('cartList:', cartList);
+
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +34,7 @@ function OrderDetails() {
       totalQuantity,
       totalPrice,
     };
-    console.log('Order:', order);
+  
 
     await dispatch(fetchCreateOrder(order)).unwrap();
 

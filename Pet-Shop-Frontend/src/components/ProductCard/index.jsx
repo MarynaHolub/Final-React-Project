@@ -27,10 +27,6 @@ function ProductCard({ product }) {
 
       {discount && <span className={styles.discount}>-{discount}%</span>}
 
-      {/* <button type="submit" className={styles.button}>
-        Add to cart
-      </button> */}
-
       <div className={styles.buttonWrapper}>
         <ButtonCart>Add to cart</ButtonCart>
       </div>

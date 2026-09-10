@@ -5,7 +5,7 @@ import ProductCard from '../ProductCard';
 import styles from '../../styles/common.module.css';
 
 function ProductsFilter({ products, breadcrumb, showDiscounted = true }) {
-// function ProductsFilter({ products, parentItems = [], showDiscounted = true }) {
+
 
   const [priceFrom, setPriceFrom] = useState('');
   const [priceTo, setPriceTo] = useState('');

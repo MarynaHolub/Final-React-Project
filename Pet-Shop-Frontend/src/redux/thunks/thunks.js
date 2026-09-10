@@ -21,8 +21,7 @@ export const fetchProducts = createAsyncThunk(
 export const fetchAddUser = createAsyncThunk(
   'usersForDiscount/fetchAddUser',
   async (userData) => {
-    // const response = await axios.post(`${API_URL}/send`, userData);
-    // return response.data;
+
 
     // Имитируем успешный ответ сервера
     console.log(userData);
@@ -39,8 +38,7 @@ export const fetchAddUser = createAsyncThunk(
 export const fetchCreateOrder = createAsyncThunk(
   'orders/fetchCreateOrder',
   async (orderData) => {
-    // const response = await axios.post(`${API_URL}/send`, orderData);
-    // return response.data;
+
 
     // Имитируем успешный ответ сервера
     console.log(orderData);

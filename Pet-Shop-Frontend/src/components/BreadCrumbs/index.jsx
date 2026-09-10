@@ -114,38 +114,3 @@ export default BreadCrumbs;
 
 
 
-
-// import { Link } from 'react-router-dom';
-// import styles from './BreadCrumbs.module.css';
-
-// function BreadCrumbs({ parentItems = [], productName }) {
-//   return (
-//     <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-//       <Link to="/" className={styles.item}>
-//         Main Page
-//       </Link>
-
-//       {parentItems.map((item) => (
-//         <div key={item.to} className={styles.wrapper}>
-//           <span className={styles.separator}></span>
-
-//           <Link to={item.to} className={styles.item}>
-//             {item.label}
-//           </Link>
-//         </div>
-//       ))}
-
-//       {productName && (
-//         <div className={styles.wrapper}>
-//           <span className={styles.separator}></span>
-
-//           <span className={`${styles.item} ${styles.current}`}>
-//             {productName}
-//           </span>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// }
-
-// export default BreadCrumbs;
