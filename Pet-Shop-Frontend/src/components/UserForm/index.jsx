@@ -32,10 +32,14 @@ function UserForm({
 
     if (!name.trim()) {
       newErrors.name = 'Please enter your name';
+    } else if (name.trim().length < 5) {
+      newErrors.name = 'Name must be at least 5 characters';
     }
 
     if (!phone.trim()) {
       newErrors.phone = 'Please enter your phone number';
+    } else if (!/^\+?[\d\s()-]{7,}$/.test(phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
     }
 
     if (!email.trim()) {

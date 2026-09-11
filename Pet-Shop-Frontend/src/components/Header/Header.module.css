@@ -56,3 +56,31 @@
   line-height: 1;
 }
 
+@media (max-width: 767px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .link {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .cart {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cartCount {
+    top: 27px;
+    right: 16px;
+    min-width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+}

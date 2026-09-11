@@ -11,6 +11,7 @@
   border-radius: 12px 0 0 12px;
   width: 200px;
   height: 180px;
+  object-fit: cover;
 }
 
 .info {
@@ -21,7 +22,7 @@
 .title {
   font-weight: 500;
   font-size: 20px;
-
+max-width: 476px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

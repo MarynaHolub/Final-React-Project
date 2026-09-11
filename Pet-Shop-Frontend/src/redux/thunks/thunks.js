@@ -22,7 +22,7 @@ export const fetchAddUser = createAsyncThunk(
   'usersForDiscount/fetchAddUser',
   async (userData) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-// Имитируем успешный ответ сервера
+
     return {
       status: 'OK',
       message: 'request processed',
