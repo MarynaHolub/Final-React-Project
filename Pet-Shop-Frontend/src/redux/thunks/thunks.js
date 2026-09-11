@@ -21,33 +21,27 @@ export const fetchProducts = createAsyncThunk(
 export const fetchAddUser = createAsyncThunk(
   'usersForDiscount/fetchAddUser',
   async (userData) => {
-
-
-    // Имитируем успешный ответ сервера
-    console.log(userData);
-
     await new Promise((resolve) => setTimeout(resolve, 1000));
+// Имитируем успешный ответ сервера
     return {
       status: 'OK',
       message: 'request processed',
+      userData,
     };
-    
   },
 );
+
+
 
 export const fetchCreateOrder = createAsyncThunk(
   'orders/fetchCreateOrder',
   async (orderData) => {
-
-
-    // Имитируем успешный ответ сервера
-    console.log(orderData);
-
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return {
       status: 'OK',
       message: 'order created successfully',
+      orderData,
     };
   },
 );

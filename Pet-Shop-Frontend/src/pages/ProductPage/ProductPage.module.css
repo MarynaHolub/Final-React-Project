@@ -36,59 +36,7 @@
   flex-direction: column;
   gap: 32px;
 }
-/* .blockPrice {
-  display: flex;
-  align-items: baseline;
-  
-}
-.extraBlock{
-  position: relative;
-}
-.discontPrice {
-  font-weight: 600;
-  font-size: 64px;
-  color: #282828;
-  margin-right: 32px;
-}
-.price {
-  font-weight: 500;
-  font-size: 40px;
-  text-decoration: line-through;
-  color: #8b8b8b;
-} */
-/* .discount {
-  border-radius: 6px;
-  padding: 4px 8px;
-  width: 63px;
-  height: 34px;
-  background: #0d50ff;
-  font-weight: 600;
-  font-size: 20px;
-  color: #fff;
-  position: absolute;
-  top: 5px;
-  right: -79px;
-} */
-.blockCountButton {
-  display: flex;
-  gap: 32px;
- 
-}
-/* .blockWrapper {
-  display: flex;
-}
-.btn {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  width: 58px;
-  height: 58px;
-  color: #8b8b8b;
-  padding: 0;
-  font-size: 42px;
 
-  cursor: pointer;
-  background: #fff;
-}
 
 .count {
   border: none;
@@ -102,30 +50,11 @@
   outline: none;
 }
 
-/* Chrome, Safari, Edge */
-/* .count::-webkit-inner-spin-button,
-.count::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-} */ 
-
-
-/* .button {
-  border-radius: 6px;
-  padding: 16px 32px;
-  width: 284px;
-  background: #0d50ff;
-  font-weight: 600;
-  font-size: 20px;
-  text-align: center;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+.blockCountButton {
+  display: flex;
+  gap: 32px;
+ 
 }
-
-.button:hover {
-  background: #282828;
-} */
 
 
 .added {
@@ -160,4 +89,22 @@
   cursor: pointer;
   background: #fff;
   border: none;
+}
+
+@media (max-width: 1200px) {
+
+
+.img{
+  display: none;
+}
+
+
+
+}
+
+@media (max-width: 768px) {
+
+  .contentWrapper {
+flex-direction: column;
+}
 }

@@ -1,33 +1,4 @@
-.regFormDiscount {
-  background: linear-gradient(261.47deg, #2451c6 32.71%, #0d50ff 98.97%);
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  border-radius: 12px;
-  padding: 32px 32px 0;
-}
-.container {
-  max-width: 1395px;
-  margin: 0 auto;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 64px;
-  text-align: center;
-  color: #fff;
-}
-.flexWrapper {
-  display: flex;
-  align-items: end;
-}
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .form {
   width: 100%;

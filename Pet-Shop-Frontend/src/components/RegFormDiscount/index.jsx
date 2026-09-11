@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal, Box, Typography } from '@mui/material';
@@ -16,13 +14,18 @@ function RegFormDiscount() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputedName, setInputedName] = useState('');
 
+  const [error, setError] = useState('');
+
   const handleSubmit = async (formData) => {
-    const result = await dispatch(fetchAddUser(formData)).unwrap();
-
-    console.log(result);
-
-    setInputedName(formData.name);
-    setIsModalOpen(true);
+    try {
+      setError('');
+      await dispatch(fetchAddUser(formData)).unwrap();
+      setInputedName(formData.name);
+      setIsModalOpen(true);
+    // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      setError('Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -31,7 +34,8 @@ function RegFormDiscount() {
 
       <div className={styles.flexWrapper}>
         <img className={styles.img} src={regDiscountImage} alt="pets" />
-
+        
+        {error && <p className={styles.error}>{error}</p>}
         <UserForm
           onSubmit={handleSubmit}
           buttonText="Get a discount"
@@ -39,10 +43,7 @@ function RegFormDiscount() {
         />
       </div>
 
-      <Modal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      >
+      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <Box
           sx={{
             position: 'absolute',
@@ -105,4 +106,3 @@ function RegFormDiscount() {
 }
 
 export default RegFormDiscount;
-
